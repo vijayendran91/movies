@@ -11,6 +11,7 @@ module Queries::Titles
   def titles(filters: nil, paging: nil)
     Title.adult_movies_filter(filters&.adult_filter)
          .start_year_filter(filters&.start_year)
+         .title_type_filter(filters&.title_type)
          .list(paging&.per_page, paging&.page_no).data
   end
 end

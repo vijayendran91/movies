@@ -10,5 +10,6 @@ module Types::Objects
     field :eyear,         String,  'Ending year'
     field :run_time,      String,  'Run time of the movie'
     field :genres,        String,  'Genre of the movie'
+    field :rating,        Types::Objects::Rating, 'Rating for the movie'
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_12_064716) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_13_075543) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -24,6 +24,25 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_12_064716) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["nconst"], name: "index_actors_on_nconst"
+  end
+
+  create_table "crews", force: :cascade do |t|
+    t.string "tconst"
+    t.text "directors", array: true
+    t.text "writers", array: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tconst"], name: "index_crews_on_tconst"
+  end
+
+  create_table "ratings", force: :cascade do |t|
+    t.string "tconst"
+    t.float "avg_rating"
+    t.integer "no_votes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["id"], name: "index_ratings_on_id"
+    t.index ["tconst"], name: "index_ratings_on_tconst"
   end
 
   create_table "titles", force: :cascade do |t|

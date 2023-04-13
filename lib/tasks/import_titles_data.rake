@@ -2,7 +2,7 @@ require 'csv'
 
 namespace :import do
   task titles: :environment do
-    file = CSV.read('imports/title_data_ad.tsv', col_sep: "\t", headers: true, liberal_parsing: true)
+    file = CSV.read('imports/title_data_aj.tsv', col_sep: "\t", headers: true, liberal_parsing: true)
     count = 0
     file.each do |record|
       title = Title.new
@@ -19,6 +19,6 @@ namespace :import do
       count += 1
       print("\nSaved #{record['primaryTitle']}")
     end
-    print("Saved all #{count} records")
+    print("\nSaved all #{count} records")
   end
 end
