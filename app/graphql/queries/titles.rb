@@ -12,6 +12,7 @@ module Queries::Titles
     Title.adult_movies_filter(filters&.adult_filter)
          .start_year_filter(filters&.start_year)
          .title_type_filter(filters&.title_type)
+         .title_ids_filter(filters&.ids)
          .list(paging&.per_page, paging&.page_no).data
   end
 end
